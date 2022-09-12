@@ -81,7 +81,8 @@ class TodoController extends Controller
      */
     public function edit(Todo $todo)
     {
-        return view('todos.edit', ['todo' => $todo]);
+        dd($todo);
+        // return view('todos.edit', ['todo' => $todo]);
     }
 
     /**

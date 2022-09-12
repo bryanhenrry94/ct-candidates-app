@@ -18,14 +18,9 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
 Route::get('/todos', [TodoController::class, 'index'])->name('todos.index');
-Route::get('/todo', [TodoController::class, 'create'])->name('todos.create');
 Route::post('/todo', [TodoController::class, 'store'])->name('todos.store');
-Route::post('/todos{todo}', [TodoController::class, 'edit'])->name('todos.edit');
+Route::post('/todos{todo}', [TodoController::class, 'update'])->name('todos.update');
 Route::delete('/todos{todo}', [TodoController::class, 'destroy'])->name('todos.destroy');
 
 require __DIR__ . '/auth.php';

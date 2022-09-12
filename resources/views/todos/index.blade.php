@@ -51,14 +51,7 @@
                                     @foreach ($todos as $todo)
                                         <tr>
                                             <td>
-                                                
-                                                <form action="{{ route('todos.edit', $todo) }}" method="POST">
-                                                    {{-- @method('DELETE') --}}
-                                                    @csrf
-                                                    {{-- <input type="checkbox" name="state" value="{{ $todo->state }}"
-                                                    /> --}}
-                                                    <input type="checkbox" name="state" id="state" value="1" {{ str_contains($todo->state, '1') ? 'checked' : '' }}/>
-                                                </form>
+                                                <input type="checkbox" name="state" id="state" value="1" {{ $todo->state || old('state', 0) === 1 ? 'checked' : '' }}/>
                                             <td>{{ $todo->description }}</td>
                                             <td>
                                                 <form action="{{ route('todos.destroy', $todo) }}" method="POST">
